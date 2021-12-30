@@ -1,36 +1,13 @@
 const express = require("express");
 const router = express.Router({ mergeParams: true });
-const { isLoggedIn } = require("../middleware");
-
+const { validateReview, isLoggedIn, isReviewAuthor } = require("../middleware");
 const Campground = require("../models/campground");
 const Review = require("../models/review");
-
-const { reviewSchema } = require("../schemas.js")
-
-const ExpressError = require("../utilities/ExpressError");
 const catchAsync = require("../utilities/catchAsync");
 
-const validateReview = (req, res, next) => {
-  const { error } = reviewSchema.validate(req.body);
-  if (error) {
-    const message = error.details.map(el => el.message).join(",")
-    throw new ExpressError(message, 400);
-  } else {
-    next();
-  }
-}
-
-const isReviewAuthor = async (req, res, next) => {
-  const review = await Review.findById(req.params.reviewId);
-  if (!review.author.equals(req.user._id)) {
-    req.flash("error", "You do not have authorization to access this resource");
-    return res.redirect(`/campgrounds/${req.params.id}`);
-  };
-  next();
-}
-
 router.post("/", isLoggedIn, validateReview, catchAsync(async (req, res) => {
-  const campground = await Campground.findById(req.params.id);
+  const { id } = req.params;
+  const campground = await Campground.findById(id);
   const review = new Review(req.body.review);
   review.author = req.user._id;
   campground.reviews.push(review);
