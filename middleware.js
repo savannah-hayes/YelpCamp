@@ -32,16 +32,6 @@ const isAuthor = async (req, res, next) => {
   next();
 };
 
-const validateReview = (req, res, next) => {
-  const { error } = reviewSchema.validate(req.body);
-  if (error) {
-    const message = error.details.map(el => el.message).join(",")
-    throw new ExpressError(message, 400);
-  } else {
-    next();
-  }
-};
-
 const isReviewAuthor = async (req, res, next) => {
   const { id, reviewId } = req.params;
   const review = await Review.findById(reviewId);
@@ -52,10 +42,20 @@ const isReviewAuthor = async (req, res, next) => {
   next();
 };
 
+const validateReview = (req, res, next) => {
+  const { error } = reviewSchema.validate(req.body);
+  if (error) {
+    const message = error.details.map(el => el.message).join(",")
+    throw new ExpressError(message, 400);
+  } else {
+    next();
+  }
+};
+
 module.exports = {
   isLoggedIn,
   validateCampground,
   isAuthor,
-  validateReview,
-  isReviewAuthor
+  isReviewAuthor,
+  validateReview
 };
