@@ -34,6 +34,9 @@ npm install
 
 ### Frontend
 
+* [html](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [css](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [vanilla js](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [ejs](http://ejs.co/)
 * [bootstrap](https://getbootstrap.com/docs/3.3/)
 
