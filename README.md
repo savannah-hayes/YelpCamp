@@ -1,5 +1,7 @@
 # YelpCamp
 
+## Live Demo
+
 ## Getting Started
 
 ### Clone or download this repository
@@ -32,12 +34,15 @@ npm install
 
 ### Frontend
 
+* [html](https://developer.mozilla.org/en-US/docs/Web/HTML)
+* [css](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [vanilla js](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 * [ejs](http://ejs.co/)
-* [Bootstrap](https://getbootstrap.com/docs/3.3/)
+* [bootstrap](https://getbootstrap.com/docs/3.3/)
 
 ### Backend
 
-* [Node.js](https://nodejs.org/en/)
+* [node.js](https://nodejs.org/en/)
 * [express](https://expressjs.com/)
 * [mongoose](http://mongoosejs.com/)
 * [passport](http://www.passportjs.org/)
@@ -45,7 +50,7 @@ npm install
 * [passport-local](https://github.com/jaredhanson/passport-local#passport-local)
 * [express-session](https://github.com/expressjs/session#express-session)
 * [method-override](https://github.com/expressjs/method-override#method-override)
-* [cloudinary](https://cloudinary.com/)
+* [helmet](https://helmetjs.github.io/)
 
 ### Databases
 
@@ -53,4 +58,5 @@ npm install
 
 ### Platforms
 
-* [Cloudinary](https://cloudinary.com/)
+* [cloudinary](https://cloudinary.com/)
+* [heroku](https://www.heroku.com/)
